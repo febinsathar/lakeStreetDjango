@@ -17,6 +17,7 @@ DJANGO_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    'whitenoise.runserver_nostatic',
     "django.contrib.staticfiles",
 ]
 
@@ -33,14 +34,17 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = [
     "django.middleware.security.SecurityMiddleware",
+     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.auth.middleware.SessionAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 ROOT_URLCONF = "backend.urls"
 

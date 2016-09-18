@@ -40,6 +40,8 @@ STATICFILES_DIRS.append(
     os.path.join(BASE_DIR, 'build'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # STATICFILES_DIRS.append(
 #     os.path.join(BASE_DIR, '../frontend', 'build'),
 # )
