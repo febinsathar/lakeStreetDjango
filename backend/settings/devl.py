@@ -1,12 +1,14 @@
 import os
 
 from .common import *
-
+import dj_database_url
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+HEROKU_POSTGRESQL_OLIVE_URL='postgres://ticgofmcpioqkt:1UhtkhaKe8y3K7obh5rA05GZXW@ec2-23-21-234-160.compute-1.amazonaws.com:5432/d9v2vscjbc3dgh'
 
 DATABASES = {
     'default': {
@@ -15,6 +17,9 @@ DATABASES = {
         'NAME': 'testdb',
     }
 }
+
+
+DATABASES['default'] =  dj_database_url.config()
 
 INTERNAL_IPS = ['192.168.56.1']
 
@@ -40,7 +45,7 @@ STATICFILES_DIRS.append(
     os.path.join(BASE_DIR, 'build'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 # STATICFILES_DIRS.append(
 #     os.path.join(BASE_DIR, '../frontend', 'build'),
