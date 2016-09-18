@@ -35,8 +35,13 @@ STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
 STATICFILES_DIRS.append(
-    os.path.join(BASE_DIR, '../frontend', 'build'),
+    os.path.join(BASE_DIR, 'build'),
 )
+
+# STATICFILES_DIRS.append(
+#     os.path.join(BASE_DIR, '../frontend', 'build'),
+# )
 
 
