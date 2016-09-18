@@ -10,16 +10,24 @@ DEBUG = True
 
 HEROKU_POSTGRESQL_OLIVE_URL='postgres://ticgofmcpioqkt:1UhtkhaKe8y3K7obh5rA05GZXW@ec2-23-21-234-160.compute-1.amazonaws.com:5432/d9v2vscjbc3dgh'
 
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'testdb',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
-DATABASES['default'] =  dj_database_url.config()
+
+DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app) your_process
 
 INTERNAL_IPS = ['192.168.56.1']
 
