@@ -27,7 +27,6 @@ db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 
-DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app) your_process
 
 INTERNAL_IPS = ['192.168.56.1']
 
